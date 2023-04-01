@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
+        <meta name="keywords" content="spice, idle, spice idle, incremental">
+        <meta name="description" content="expand your spice empire">
+        <title>Red Spice Idle</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="tabs_block" class="tabs_block">
+            <div class="menu">
+                <button id="spices" class="tab selected" onclick="goto_tab(0)">
+                    SPICES
+                </button>
+                <button id="tab2" class="tab locked">
+                    REMOVED
+                </button>
+                <button id="tab3" class="tab locked">
+                    REMOVED
+                </button>
+                <button id="tab4" class="tab locked">
+                    REMOVED
+                </button>
+                <button id="tab5" class="tab locked">
+                    REMOVED
+                </button>
+                <button id="statistics" class="tab unlocked" onclick="goto_tab(5)">
+                    STATISTICS
+                </button>
+                <button id="settings" class="tab unlocked" onclick="goto_tab(6)">
+                    SETTINGS
+                </button>
+            </div>
+
+            <div id="spices_tabs" class="submenu">
+                <button id="red1" class="subtab selected" onclick="goto_subtab(0)">
+                    RED
+                </button>
+            </div>
+        </div>
+
+        <main>
+            <div id="spices_page">
+                <div id="red1_page" class="spice_page">
+                    <p id="red1_spice_num" class="spice_num red_spice">
+                        5.00 g
+                    </p>
+                    <p class="spice_text red_spice">
+                        red spice
+                    </p>
+
+                    <p id="red1_spice_up" class="spice_up">
+                        +0.000 g red spice/sec
+                    </p>
+
+                    <button class="spice_buy max_all" onclick="max_all(1)">
+                        Max All
+                    </button>
+                    <button id="red1_auto" class="spice_buy a_disabled" onclick="auto_toggle(1)">
+                        Auto: OFF
+                    </button>
+
+                    <div class="spice_gen_page">
+                        <div id="red1_panel_left" class="spice_gen_panel"></div>
+                        <div id="red1_panel_right" class="spice_gen_panel"></div>
+                    </div>
+
+                    <div id="red1_upgrades" class="spice_upgrades">
+                        <button id="red1_strengthener" class="red_upgrade red_locked" onclick="buy_strengthener(1)">
+                            <span id="red1_desc1">Gain a 2x boost to all red spice production<br>(Currently: 1x)</span>
+                            <br><span id="red1_pcost1" class="bold">-1.000e8 g red spice</span>
+                        </button>
+                        <button id="red1_unlock" class="red_upgrade red_locked" onclick="buy_upgrade(1, 1)">
+                            <span id="red1_desc2">Unlock a new red spice</span>
+                            <br><span id="red1_pcost2" class="bold">-1.000e45 g red spice</span>
+                        </button>
+                        <button id="red1_autoup" class="red_upgrade red_locked" onclick="buy_upgrade(1, 2)">
+                            <span id="red1_desc3">Unlock automation for red spice</span>
+                            <br><span id="red1_pcost3" class="bold">-1.000e80 g red spice</span>
+                        </button>
+                        <button id="red1_upgrade" class="red_upgrade red_locked" onclick="buy_upgrade(1, 3)">
+                            <span id="red1_desc4">Boost ALL red spice production 2x for every red spice unlocked<br>(Currently: 1x)</span>
+                            <br><span id="red1_pcost4" class="bold">-1.000e120 g red spice</span>
+                        </button>
+                        <button id="red1_upgrade2" class="red_upgrade red_locked" onclick="buy_upgrade(1, 4)">
+                            <span id="red1_desc5">Unlock automation for ALL red spices, permanently</span>
+                            <br><span id="red1_pcost5" class="bold">-1.000e10,000 g red spice</span>
+                        </button>
+                        <button id="red1_upgrade3" class="red_upgrade red_locked" onclick="buy_upgrade(1, 5)">
+                            <span id="red1_desc6">Repeatable spice production boost upgrades<br>2x -> 2.1x</span>
+                            <br><span id="red1_pcost6" class="bold">-1.000e1.500e7 g red spice</span>
+                        </button>
+                        <button id="red1_upgrade4" class="red_upgrade red_locked" onclick="buy_upgrade(1, 6)">
+                            <span id="red1_desc7">Improve synergy between red spices by 50%</span>
+                            <br><span id="red1_pcost7" class="bold">-1.000e2.000e10 g red spice</span>
+                        </button>
+                        <button id="red1_upgrade5" class="red_upgrade red_locked" onclick="buy_upgrade(1, 7)">
+                            <span id="red1_desc8">Make the above upgrade 2x stronger</span>
+                            <br><span id="red1_pcost8" class="bold">-1.000e120,000 g red spice</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="statistics_page">
+                <p id="statistics_text" class="statistics_text">
+                    You have 5.000 g red spice
+                    <br>You have accumulated a total of 5.000 g red spice
+                    <br><br>
+                    You have played for a total of 0.000 seconds
+                </p>
+            </div>
+
+            <div id="settings_page">
+                <div id="save_block" class="settings_block">
+                    <button id="save" class="settings_button s_big" onclick="save()">
+                        SAVE
+                    </button>
+                    <button id="export" class="settings_button s_big" onclick="export_save()">
+                        EXPORT
+                    </button>
+                    <button id="import" class="settings_button s_big" onclick="import_save()">
+                        IMPORT
+                    </button>
+                </div>
+
+                <div id="settings_block1" class="settings_block">
+                    <button id="notation" class="settings_button" onclick="notation()">
+                        Notation
+                        <br>SCIENTIFIC
+                    </button>
+                    <button id="hotkeys" class="settings_button" onclick="hotkeys()">
+                        Hotkeys
+                        <br>ENABLED
+                    </button>
+                    <button id="condensed" class="settings_button" onclick="condensed()">
+                        Condensed Generators
+                        <br>DISABLED
+                    </button>
+                </div>
+                <div id="settings_block2" class="settings_block">
+                    <button id="exponent_notation" class="settings_button" onclick="exponent_notation()">
+                        Exponent Notation
+                        <br>LONG
+                    </button>
+                    <button id="refresh_rate" class="settings_button" onclick="refresh_rate()">
+                        Refresh Rate
+                        <br>20 MS
+                    </button>
+                </div>
+
+                <div id="wipe_block" class="settings_block">
+                    <button id="wipe_save" class="settings_button s_big" onclick="delete_save()">
+                        DELETE SAVE
+                    </button>
+                </div>
+
+                <p id="hotkeys_list" class="hotkeys_list">
+                    Hotkeys:
+                    <br>1-6: Buy until 5 of generator
+                    <br>Shift+1-6: Buy 1 of generator
+                    <br>S: Buy strengthener
+                    <br>M: Max all
+                </p>
+            </div>
+
+            <p id="version" class="info">
+                Red Spice Idle v2.0.0<br>Made by Zakuro<br><br>Last updated March 32, 2023
+            </p>
+            <a href="changelog.html" target="_blank" class="info link">Changelog</a>
+            <a href="https://zakuro98.github.io/EXP-Simulator/" target="_blank" class="info link">EXP Simulator</a>
+            <a href="https://discord.gg/fuQSBkYYqH" target="_blank" class="info link">Discord</a>
+        </main>
+        <script src="break_infinity.js" charset="utf-8" type="text/javascript"></script>
+        <script src="format.js" charset="utf-8" type="text/javascript"></script>
+        <script src="init.js" charset="utf-8" type="text/javascript"></script>
+        <script src="settings.js" charset="utf-8" type="text/javascript"></script>
+        <script src="event.js" charset="utf-8" type="text/javascript"></script>
+        <script src="graphics.js" charset="utf-8" type="text/javascript"></script>
+        <script src="main.js" charset="utf-8" type="text/javascript"></script>
+    </body>
+</html>

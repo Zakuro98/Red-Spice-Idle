@@ -1,0 +1,432 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #221625;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0em;
+    padding: 0em;
+    --mobile: 0;
+}
+
+@media (pointer: coarse) {
+    body {
+        font-size: 2.25vw;
+        --mobile: 1;
+    }
+}
+
+main {
+    margin: 32px;
+}
+
+.tabs_block {
+    position: sticky;
+    top: 0em;
+    z-index: 1;
+}
+
+.menu, .submenu {
+    display: flex;
+    margin: 0em;
+    flex-wrap: wrap;
+}
+
+#spices_tabs {
+    display: none;
+}
+
+.tab {
+    background: black;
+    padding: 0.3em 0.5em;
+    font-family: "Fira Code";
+    font-size: 2em;
+    border: none;
+    flex: 1;
+}
+
+.subtab {
+    background: #151116;
+    padding: 0.3em 2.5em;
+    font-family: "Fira Code";
+    font-size: 1.5em;
+    border: none;
+    flex: 1;
+}
+
+@media (pointer: coarse) {
+    .tab {
+        font-size: 1.75em;
+    }
+
+    .subtab {
+        font-size: 1.3em;
+    }
+}
+
+.locked {
+    color: #666666;
+    font-weight: normal;
+}
+
+.unlocked {
+    color: #aaaaaa;
+    font-weight: normal;
+}
+
+.unlocked:hover {
+    color: white;
+    font-weight: normal;
+}
+
+.selected {
+    color: white;
+    font-weight: bold;
+}
+
+#statistics_page, #settings_page {
+    display: none;
+}
+
+.spice_num {
+    font-size: 4em;
+    font-weight: 700;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: -0.15em;
+}
+
+.spice_text {
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.spice_up {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: white;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.spice_gen_page {
+    display: flex;
+}
+
+@media (pointer: coarse) {
+    .spice_gen_page {
+        flex-direction: column;
+    }
+}
+
+@media (pointer: fine), (pointer: none) {
+    .spice_gen_page {
+        flex-direction: row;
+    }
+}
+
+.spice_gen_panel {
+    padding-right: 6em;
+}
+
+.spice_gen {
+    margin-top: 1.5em;
+}
+
+.spice_gen_name {
+    font-size: 1.25em;
+    font-weight: 400;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0.4em;
+}
+
+.spice_gen_info {
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0.6em;
+    margin-left: 2em;
+}
+
+.spice_gen_boost {
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0.8em;
+    margin-left: 2em;
+}
+
+.spice_buttons {
+    margin-left: 2em;
+}
+
+.center_button {
+    display: flex;
+    justify-content: center;
+}
+
+.spice_buy {
+    padding: 0.2em 0.4em;
+    background-color: #311936;
+    font-family: "Fira Code";
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+    border: 1px solid white;
+    margin-bottom: 0.3em;
+    margin-right: 0.3em;
+}
+
+.spice_buy:hover {
+    background-color: #421d49;
+}
+
+.spice_buy:active {
+    background-color: #571c66;
+}
+
+.max_all {
+    font-size: 1.25em;
+}
+
+.spice_upgrades {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5em;
+}
+
+#red1_upgrades {
+    width: 64.8em;
+}
+
+@media (pointer: coarse) {
+    #red1_upgrades {
+        width: 100%;
+    }
+}
+
+.red_upgrade {
+    padding: 0.5em 0.5em;
+    font-family: "Fira Code";
+    font-size: 0.9em;
+    font-weight: 400;
+    margin: 0.5em;
+    width: 17em;
+    height: 9em;
+}
+
+.red_locked {
+    background-color: black;
+    color: var(--red_spice);
+    border: 1px solid var(--red_spice);
+}
+
+.red_unlocked {
+    background-color: black;
+    color: var(--red_spice);
+    text-shadow: 0 0 0.3em var(--red_spice);
+    border: 1px solid var(--red_spice);
+    box-shadow: 0 0 0.5em var(--red_spice2), 0 0 4em var(--red_spice2) inset;
+}
+
+.red_unlocked:hover {
+    background-color: var(--red_spice3);
+    color: white;
+    text-shadow: 0 0 0.3em var(--red_spice);
+    border: 1px solid var(--red_spice);
+    box-shadow: 0 0 0.5em var(--red_spice), 0 0 4em var(--red_spice) inset;
+}
+
+.red_unlocked:active {
+    background-color: var(--red_spice);
+    color: black;
+    text-shadow: none;
+    border: 1px solid var(--red_spice);
+    box-shadow: 0 0 0.5em var(--red_spice);
+}
+
+.red_bought {
+    background-color: var(--red_spice);
+    color: black;
+    text-shadow: none;
+    border: 1px solid var(--red_spice);
+    box-shadow: 0 0 0.5em var(--red_spice);
+}
+
+.a_disabled {
+    font-size: 1.25em;
+    color: #ff2714;
+}
+
+.a_enabled {
+    font-size: 1.25em;
+    color: #25dd8a;
+}
+
+.red_spice{
+    color: var(--red_spice);
+}
+
+.red_cost {
+    color: var(--red_spice);
+    font-weight: 700;
+}
+
+.empty_cost {
+    color: #9b9b9b;
+    font-weight: 700;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media (pointer: coarse) {
+    .spice_num {
+        font-size: 3.25em;
+    }
+}
+
+.statistics_text {
+    font-size: 1.333em;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+}
+
+@media (pointer: coarse) {
+    .statistics_text {
+        font-size: 1.167em;
+    }
+}
+
+.settings_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0.6em;
+}
+
+#settings_block1 {
+    margin-top: 0em;
+}
+
+#save_block {
+    margin-top: 5em;
+    margin-bottom: 3em;
+}
+
+#wipe_block {
+    margin-top: 3em;
+}
+
+.settings_button {
+    padding: 0.2em 0.2em;
+    width: 16em;
+    height: 4em;
+    background-color: #311936;
+    font-family: "Fira Code";
+    font-size: 1.25em;
+    font-weight: 400;
+    color: white;
+    border: 1px solid white;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+.settings_button:hover {
+    background-color: #421d49;
+}
+
+.settings_button:active {
+    background-color: #571c66;
+}
+
+@media (pointer: coarse) {
+    .settings_button {
+        font-size: 1em;
+        width: 20em;
+        height: 5em;
+    }
+}
+
+.s_big {
+    font-size: 2em;
+    padding: 0.125em 0.125em;
+    width: 10em;
+    height: 2.5em;
+    margin-left: 0.15625em;
+    margin-right: 0.15625em;
+}
+
+#wipe_save {
+    color: #ff2714;
+}
+
+.hotkeys_list {
+    font-size: 1em;
+    color: white;
+    margin-top: 3em;
+    margin-bottom: 0em;
+    text-align: center;
+}
+
+.info {
+    color: white;
+    font-size: 1.25em;
+    margin-top: 6em;
+    margin-bottom: 0.5em;
+}
+
+.link {
+    color: #ff2714;
+    cursor: pointer;
+    margin-right: 0.5em;
+}
+
+.link:hover {
+    color: #fc594a;
+}
+
+.title {
+    font-family: "Fira Code";
+    font-size: 2.857em;
+    font-weight: bold;
+    color: #ff2714;
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+}
+
+.change_head {
+    font-family: "Fira Code";
+    color: white;
+    font-size: 1em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.change_minor {
+    font-family: "Fira Code";
+    color: #aaaaaa;
+    font-size: 1em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.change_major {
+    font-family: "Fira Code";
+    color: #ff2714;
+    font-size: 1.4em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
