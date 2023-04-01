@@ -38,7 +38,7 @@ let game = {
 }
 
 for (let i = 0; i < total_spices; i++) {
-    game.red_spice = new Decimal(5)
+    game.red_spice[i] = new Decimal(5)
     game.red_spice_gen[i] = [
         new Decimal(0),
         new Decimal(0),
