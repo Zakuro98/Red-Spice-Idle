@@ -276,6 +276,10 @@ goto_tab(0)
 //load the game
 function load(savegame) {
     if (savegame === null) return
+    if (savegame.yellow_spice !== undefined) {
+        alert("Don't try to import a lesser version of the game here...")
+        return
+    }
 
     game = savegame
 
