@@ -158,7 +158,7 @@ function hotkey_tick() {
                 if (key.shift && key.digit[i]) {
                     buy_gen(game.subtab + 1, i)
                 } else if (key.digit[i]) {
-                    buy_until10(game.subtab + 1, i)
+                    buy_until5(game.subtab + 1, i)
                 }
             }
 
